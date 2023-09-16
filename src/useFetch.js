@@ -17,13 +17,13 @@ const useFetch = (url) => {
           return res.json();
         })
         .then((data) => {
-          setData(data);
           setIsPending(false);
+          setData(data);
           setError(null);
         })
         .catch((err) => {
           if (err.name === "AbortError") {
-            console.log("abort fetch");
+            console.log("fetch aborted");
           } else {
             setIsPending(false);
             setError(err.message);
